@@ -1,0 +1,90 @@
+@api=http://localhost:3000/api/v1/product
+@apiDyn=http://localhost:3000/api/v1/dynamic
+@apiCat=http://localhost:3000/api/v1/product/categoria
+@apiEmp = http://localhost:3000/api/v1/product/tipo_empaque
+@apiAuth=http://localhost:3000/api/v1/auth
+@apiReg = http://localhost:3000/api/v1/auth/register
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsIm5hbWUiOiJNZWxpc3NhIiwiaWF0IjoxNzIxNzY4NjAyLCJleHAiOjE3MjE4MTE4MDJ9.YrCmOGXw-VYVhLd9z2NabnYaDjwkY1XaOwq02YKc3Fg
+
+### GetDyn
+GET {{apiDyn}}
+Authorization: {{token}}
+Content-Type: application/json
+
+### GetCat
+GET  {{apiCat}}
+Authorization: {{token}}
+Content-Type: application/json
+
+### PostEmp
+POST  {{apiEmp}}
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "Nombre": "Sellado",
+    "Descripcion": "Para transportar grandes cantidades de productos"
+}
+
+### GetEmp
+GET {{apiEmp}}?limit=5&page=1
+Authorization: {{token}}
+
+### Get
+GET {{api}}
+Authorization: {{token}}
+
+### Post
+POST {{api}}
+Authorization: {{token}}
+Content-Type: application/json 
+
+{
+    "Nombre": "Banano",
+    "Precio": 10.35,
+    "Descripcion": "Banano verde",
+    "fk_id_Empaque": 1,
+    "Codigo": 6006,
+    "fk_id_Cat": 1
+}
+
+### Delete
+DELETE {{api}}?id=30
+Authorization: {{token}}
+
+
+### Put
+PUT {{api}}?id=18
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "Nombre": "Sandia",
+    "Precio": 15.15,
+    "Descripcion": "Sandia dulce",
+    "fk_id_Empaque": 1,
+    "Codigo": 4004,
+    "fk_id_Cat": 1
+}
+
+###
+GET {{apiAuth}}
+
+###
+POST {{apiAuth}}
+Content-Type: application/json
+
+{
+    "user": "Melissa",
+    "password": "meli2412"
+}
+
+###
+POST {{apiReg}}
+Content-Type: application/json
+
+{
+    "user": "admin",
+    "password": "admin"
+
+}
